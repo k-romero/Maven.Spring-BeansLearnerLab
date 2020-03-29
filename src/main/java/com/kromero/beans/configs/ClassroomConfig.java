@@ -1,7 +1,6 @@
 package com.kromero.beans.configs;
 
 import com.kromero.beans.models.ClassRoom;
-import com.kromero.beans.models.Instructor;
 import com.kromero.beans.models.Instructors;
 import com.kromero.beans.models.Students;
 import org.springframework.beans.factory.annotation.Qualifier;

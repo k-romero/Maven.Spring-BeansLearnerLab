@@ -1,5 +1,6 @@
 package com.kromero.beans.models;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
@@ -28,7 +29,9 @@ public class Instructor extends  Person implements Teacher{
 
     @Override
     public void lecture(Iterable<? extends Learner> learners, Double numOfHrs) {
-        Double hrsPer = numOfHrs/((ArrayList<Learner>) learners).size();
+        ArrayList<Learner> learnerList = new ArrayList<>();
+        learners.forEach(l -> learnerList.add(l));
+        Double hrsPer = numOfHrs/learnerList.size();
         learners.forEach(l -> l.learn(hrsPer));
         hoursWorked += numOfHrs;
     }
