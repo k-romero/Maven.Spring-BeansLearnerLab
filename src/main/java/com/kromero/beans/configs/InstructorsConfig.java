@@ -15,18 +15,18 @@ public class InstructorsConfig {
 
     @Bean
     public Instructors tcUsaInstructors(){
-        ArrayList<Instructor> curr = new ArrayList<>(10);
-        for(int i = 0; i < 10; i++) {
+        ArrayList<Instructor> curr = new ArrayList<>();
+        for(int i = 0; i < 12; i++) {
             Long id = Long.valueOf(i);
             curr.add(new Instructor(id,"tUsa"+i));
         }
         return new Instructors(curr);
     }
 
-    @Bean
+    @Bean(name = "tcInstructors")
     public Instructors tcUkInstructors(){
-        ArrayList<Instructor> curr = new ArrayList<>(10);
-        for(int i = 0; i < 10; i++) {
+        ArrayList<Instructor> curr = new ArrayList<>();
+        for(int i = 0; i < 11; i++) {
             Long id = Long.valueOf(i);
             curr.add(new Instructor(id,"tUk"+i));
         }
@@ -36,8 +36,8 @@ public class InstructorsConfig {
     @Primary
     @Bean(name = "instructors")
     public Instructors tcZCInstructors(){
-        ArrayList<Instructor> curr = new ArrayList<>(10);
-        for(int i = 0; i < 10; i++) {
+        ArrayList<Instructor> curr = new ArrayList<>();
+        for(int i = 0; i < 5; i++) {
             Long id = Long.valueOf(i);
             curr.add(new Instructor(id,"tZC"+i));
         }

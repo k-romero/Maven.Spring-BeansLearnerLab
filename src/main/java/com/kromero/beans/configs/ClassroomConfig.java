@@ -8,23 +8,22 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Primary;
 
-import java.util.ArrayList;
 
 @Configuration
 public class ClassroomConfig {
 
-
-
-    @Bean
+    @Bean(name = "currentCohort")
     @DependsOn({"instructors","students"})
-    public ClassRoom currentCohort(@Qualifier("students") Students students, Instructors instructors){
+    @Primary
+    public ClassRoom currentCohort(Instructors instructors, @Qualifier("students") Students students){
         return new ClassRoom(instructors,students);
     }
 
-    @Bean
-    @DependsOn({"instructors","prevStudents"})
-    public ClassRoom prevCohort(@Qualifier("prevStudents") Students students, Instructors instructors){
+    @Bean(name = "prevCohort")
+    @DependsOn({"tcInstructors","prevStudents"})
+    public ClassRoom prevCohort(@Qualifier("prevStudents") Students students,@Qualifier("tcInstructors") Instructors instructors){
         return new ClassRoom(instructors,students);
     }
 

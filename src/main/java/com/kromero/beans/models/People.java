@@ -48,7 +48,7 @@ public abstract class People<PersonType extends Person> implements Iterable<Pers
     public String toString() {
         StringBuilder builder = new StringBuilder();
         personList.forEach(p -> {
-            builder.append("Student = " + p.getName() + " ");
+            builder.append( "\nModel " + p.getName());
         });
         return builder.toString();
     }

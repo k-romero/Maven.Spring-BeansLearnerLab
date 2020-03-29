@@ -14,7 +14,6 @@ import java.util.Arrays;
 public class StudentConfig {
 
 
-    @Qualifier
     @Bean(name ="students")
     public Students currentStudents(){
         ArrayList<Student> curr = new ArrayList<>(10);
